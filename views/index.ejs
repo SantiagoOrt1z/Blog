@@ -1,0 +1,28 @@
+<%- include("layouts/header.ejs") %>
+<div class="container text-center py-4">
+<h1>¡Bienvenido a tu Blog!</h1>
+
+<div class="row g-6 my-4 py-5" style="height: 60vh;">
+  <h2 class="my-4">Tus posteos</h2>
+
+  <% if (publicaciones.length === 0) { %>
+    <h3>No hay publicaciones</h2>
+<% } else { %>
+    
+        <% publicaciones.forEach(post => { %>
+          
+          <div class="card mx-2" style="width: 18rem; height: 200px;">
+            <div class="card-body">
+              <h5 class="card-title my-5"><%= post.titulo %></h5>
+              <a href="/publicacion/<%= post.id %>" class="btn btn-primary">Ver</a>
+            </div>
+          </div>
+           
+        <% }) %>
+    
+<% } %>
+</div>
+</div>
+
+
+<%- include("layouts/footer.ejs") %>
